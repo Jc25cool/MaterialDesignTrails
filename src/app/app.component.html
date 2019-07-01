@@ -2,3 +2,29 @@
 <app-shared-component [dropdownList] ="marketDropdownList" [placeHolderInput]="marketPlaceHolderData" (selectedItems)="listOfSelectedMarkets($event)"></app-shared-component>
 
 <app-shared-component [dropdownList] ="stationDropdownList" [placeHolderInput]="stationPlaceHolderData" (selectedItems)="listOfSelectedStations($event)"></app-shared-component>
+
+
+<h2>Drag and Drop demo</h2>
+<div  id="div1" 
+      (drop)="drop($event)" 
+      (dragover)="allowDrop($event)">
+
+      <div draggable="true" (dragstart)="drag($event)" [id]="'dragOne'+ i" *ngFor="let content of divOneContent; let i=index" style="margin:2px">
+             <span> {{content}} </span>
+             <span> <button class="btn btn-info btn-xs">options</button></span>
+       </div>
+
+      <!--<div draggable="true" (dragstart)="drag($event)" id="drag2"> Content 2 </div>
+      <div draggable="true" (dragstart)="drag($event)" id="drag3"> Content 3 </div>
+      <div draggable="true" (dragstart)="drag($event)" id="drag4"> Content 4 </div>-->
+</div>
+
+<div id="div2" 
+  (drop)="drop($event)" 
+  (dragover)="allowDrop($event)">
+
+      <div draggable="true" (dragstart)="drag($event)" [id]="'dragTwo'+ i" *ngFor="let content of divTwoContent; let i=index"> 
+            <span> {{content}} </span>
+            <span> <button class="btn btn-info btn-xs" >options</button></span>
+      </div>
+</div>
